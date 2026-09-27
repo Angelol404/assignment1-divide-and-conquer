@@ -15,7 +15,7 @@ The goal is to compare theoretical complexity with practical performance.
 
 ### MergeSort
 
-MergeSort divides the array into two halves, sorts them recursively, and merges them.
+MergeSort divides the array into two halves, sorts both halves recursively, and merges them.
 
 Time Complexity: O(n log n)  
 Space Complexity: O(n)
@@ -23,6 +23,53 @@ Space Complexity: O(n)
 Recurrence:
 
 T(n) = 2T(n/2) + O(n)
+
+By the Master Theorem, the complexity is O(n log n).
+
+### QuickSort
+
+QuickSort chooses a random pivot and partitions the array into smaller and larger elements.
+
+Average Time Complexity: O(n log n)  
+Worst Case: O(n²)
+
+Recurrence in a balanced case:
+
+T(n) = 2T(n/2) + O(n)
+
+Random pivot selection helps avoid bad partitions.
+
+The algorithm recursively processes the smaller partition and uses iteration for the larger one to reduce recursion depth.
+
+### Deterministic Select
+
+Deterministic Select finds the k-th smallest element.
+
+It divides elements into groups of five and chooses the median of medians as the pivot.
+
+Worst-case Time Complexity: O(n)
+
+Recurrence:
+
+T(n) = T(n/5) + T(7n/10) + O(n)
+
+This recurrence gives linear worst-case complexity.
+
+### Closest Pair of Points
+
+Closest Pair finds the minimum distance between two points.
+
+The points are sorted by x-coordinate, divided into two halves, and solved recursively.
+
+A middle strip is then checked using y-order.
+
+Time Complexity: O(n log n)
+
+Recurrence:
+
+T(n) = 2T(n/2) + O(n)
+
+By the Master Theorem, the complexity is O(n log n).
 
 ### QuickSort
 
@@ -51,6 +98,13 @@ Time Complexity: O(n log n)
 
 ## Experimental Results
 
+The experiments were performed for all four algorithms:
+
+- MergeSort
+- QuickSort
+- Deterministic Select
+- Closest Pair of Points
+
 The program measures:
 
 - Execution time
@@ -72,6 +126,7 @@ Input types:
 - Random
 - Sorted
 - Reverse-sorted
+- Duplicate-heavy
 
 ## Testing
 
